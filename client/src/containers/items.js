@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { onItemsFetchRequested } from '../actions';
-import { getAllItems, isLoading } from '../reducers';
+import { getAllItems, isLoading, hasError } from '../reducers';
 import { ItemsList } from '../components/items-list';
 import NoMatch from '../components/no-match';
+import ErrorMessage from '../components/error';
 
 class Items extends Component {
 
@@ -13,13 +14,19 @@ class Items extends Component {
   }
 
   render() {
-    const { items, loading } = this.props;
+    const { items, loading, hasError, fetchItems } = this.props;
 
     if (!items.length && !loading) {
       return <NoMatch message="No items found" />
     }
     return (
-      <ItemsList items={items} loading={loading} />
+      <div>
+        {hasError && <ErrorMessage
+                        onRetry={() => fetchItems()}
+                        message="Some error happened during items fetch." />
+        }
+        <ItemsList items={items} loading={loading} />
+      </div>
     );
 
   }
@@ -27,7 +34,8 @@ class Items extends Component {
 
 const mapStateToProps = (state, props) => ({
   items: getAllItems(state),
-  loading: isLoading(state)
+  loading: isLoading(state),
+  hasError: hasError(state)
 }); 
 
 Items = withRouter(connect(

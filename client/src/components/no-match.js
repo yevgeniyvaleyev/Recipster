@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Card, CardText } from 'material-ui';
 
 const NoMatch = ({what = 'Page', message}) => (
@@ -10,6 +11,11 @@ const NoMatch = ({what = 'Page', message}) => (
       }
     </CardText>
   </Card>
-)
+);
+
+NoMatch.propTypes = {
+  what: PropTypes.string.isRequired,
+  message: PropTypes.string
+};
 
 export default NoMatch;

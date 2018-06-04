@@ -5,6 +5,7 @@ import { onItemFetchRequested } from '../actions';
 import { withRouter } from 'react-router';
 import { ItemDetails } from '../components/item-details';
 import NoMatch from '../components/no-match';
+import ErrorMessage from '../components/error';
 
 class Item extends Component {
 
@@ -15,13 +16,20 @@ class Item extends Component {
   }
 
   render() {
-    const { item, loading } = this.props;
+    const { item, loading, hasError, fetchItem } = this.props;
+    const { itemId } = this.props.match.params;
     
     if (!item && !loading) {
       return <NoMatch what="Item" />
     }
-    return item 
-      ? <ItemDetails item={item} loading={loading} />
+    return item
+      ? <div>
+          {hasError && <ErrorMessage
+                          onRetry={() => fetchItem(itemId)}
+                          message="Some error happened during item fetch." />
+          }
+          <ItemDetails item={item} loading={loading} />
+        </div>
       : <div></div>
   }
 }
@@ -29,7 +37,7 @@ class Item extends Component {
 const mapStateToProps = (state, props) => ({
   item: getItem(state, props.match.params.itemId),
   loading: isLoading(state),
-  hasError: hasError(state, props.match.params.itemId)
+  hasError: hasError(state)
 }); 
 
 Item = withRouter(connect(
