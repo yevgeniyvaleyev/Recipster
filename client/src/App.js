@@ -15,10 +15,10 @@ export default class App extends Component {
   render() {
     return (
       <Row>
-        <Col lg={12}>
+        <Col xs={12}>
           <Row>
-            <Col lg={12}>
-              <Paper className="header-container" zDepth={1}>
+            <Col xs={12}>
+              <Paper>
                 <Toolbar>
                   <ToolbarGroup>
                     <NavLink to="/"><h3>Recipster</h3></NavLink>
@@ -29,7 +29,7 @@ export default class App extends Component {
             </Col>
           </Row>
           <Row>
-            <Col lg={12}>
+            <Col xs={12}>
               <Switch>
                 <Route path='/' exact component={Items} />
                 <Route path='/item/:itemId'  component={Item} />

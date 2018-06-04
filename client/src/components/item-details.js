@@ -21,10 +21,10 @@ export class ItemDetails extends Component {
         <CardTitle title={item.title} subtitle={item.publisher} />
         <CardText>
           <Row>
-            <Col lg={4} md={6} sm={12}>
+            <Col lg={4} md={6} xs={12}>
               <Media style={{backgroundImage: `url(${item.image_url})`}} alt={item.title + ', image'} />
             </Col>
-            <Col lg={4} md={6} sm={12}>
+            <Col lg={4} md={6} xs={12}>
               <h3>Ingredients</h3>
               {(!loading && item.ingredients)
                 ? <ol>
@@ -36,7 +36,7 @@ export class ItemDetails extends Component {
               }
 
             </Col>
-            <Col lg={4} md={6} sm={12}>
+            <Col lg={4} md={6} xs={12}>
               <h3>Info</h3>
               <ul>
                 <li>Publisher: <a href={item.publisher_url}>{item.publisher}</a></li>
