@@ -1,6 +1,26 @@
 # Lister app
-The application fetches data from public API and shows items list. User can view details of the item by clicking on item.
+The application fetched data from public API and shows items list. User can view details of the item by clicking on item.
 
-# Other instructions
+# Installation
+
+### Client
+Use `npm install` in folder `client` to install needed dependencies 
+
+### Dev server
+Use `npm install` in folder `server` to install needed dependencies 
+
+# Start
+
 Dev server and client have to be started for correct work of the app.
-Follow instructions in `README.md` files in `client` and `server` folders
+
+### Client
+Run `npm start` in `client` folder to start the client
+For production build run `npm run build`
+
+### Client
+Run `npm start` in `server` folder to start dev server
+
+# Environment
+
+The application was developed and tested on `node v8.1.2`
+ 
