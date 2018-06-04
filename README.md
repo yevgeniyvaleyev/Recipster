@@ -8,6 +8,7 @@ Use `npm install` to install needed dependencies
 #Start
 
 Run `npm start` to start the application
+For production build run `npm run build`
 
 #Environment
 
