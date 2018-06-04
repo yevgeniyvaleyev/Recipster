@@ -41,5 +41,5 @@ app.get('/items/:id', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Lister App Server listening on port ${port}`);
+  console.log(`Recipster App Server listening on port ${port}`);
 });

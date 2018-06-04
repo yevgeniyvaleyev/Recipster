@@ -1,6 +1,6 @@
-# Lister dev server
+# Recipster dev server
 
-This is a simple dev server for Lister app.
+This is a simple dev server for Recipster app.
 It allows using API which have cross-origin resource sharing restrictions (cors).
 
 # Installation

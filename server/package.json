@@ -1,7 +1,7 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "Simple server for Lister app",
+  "description": "Simple server for Recipster app",
   "main": "index.js",
   "scripts": {
     "start": "node ./index.js"

@@ -1,4 +1,4 @@
-# Lister app
+# Recipster app
 The application fetched data from public API and shows items list. User can view details of the item by clicking on item.
 
 # Installation
@@ -24,3 +24,7 @@ Run `npm start` in `server` folder to start dev server
 
 The application was developed and tested on `node v8.1.2`
  
+# Decisions and difficulties
+
+- Some open API have cross-origin resource sharing restrictions, so I added own dev server.
+- I had some problems making react-router-redux working with persist, I decided to avoid using react-router-redux, since it does not give vaslue to this specific application.
