@@ -2,14 +2,17 @@ import {
   FETCH_ITEMS_END,
   FETCH_ITEM_END,
   FETCH_ITEMS_START,
-  FETCH_ITEM_START
+  FETCH_ITEM_START,
+  FETCH_ITEM_ERROR,
+  FETCH_ITEMS_ERROR
  } from '../actions/types';
- import { combineReducers } from 'redux';
 
-function dataLoading (state = false, action) {
+ export const loading = (state = false, action) => {
   switch (action.type) {
     case FETCH_ITEMS_END:
     case FETCH_ITEM_END:
+    case FETCH_ITEM_ERROR:
+    case FETCH_ITEMS_ERROR:
       return false
     case FETCH_ITEMS_START:
     case FETCH_ITEM_START:
@@ -18,7 +21,3 @@ function dataLoading (state = false, action) {
       return state;
   }
 }
-
-export const loading = combineReducers({
-  data: dataLoading
-})

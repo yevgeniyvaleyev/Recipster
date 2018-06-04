@@ -13,9 +13,9 @@ export class ItemDetailsShort extends Component {
     const { item } = this.props;
 
     return (
-      <ListNav to={`/${item.recipe_id}`}>
+      <ListNav to={`/item/${item.recipe_id}`}>
         <ListItem
-          leftAvatar={<Avatar alt="" src={item.image_url} />}
+          leftAvatar={<Avatar alt={item.title} src={item.image_url} />}
           primaryText={item.title}
           secondaryText={item.publisher}
         />

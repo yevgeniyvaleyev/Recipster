@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getItem, isLoading } from '../reducers';
+import { getItem, isLoading, hasError } from '../reducers';
 import { fetchItem } from '../actions';
 import { withRouter } from 'react-router';
 import { ItemDetails } from '../components/item-details';
+import NoMatch from '../components/no-match';
 
 class Item extends Component {
 
@@ -16,6 +17,9 @@ class Item extends Component {
   render() {
     const { item, loading } = this.props;
     
+    if (!item && !loading) {
+      return <NoMatch what="Item" />
+    }
     return item 
       ? <ItemDetails item={item} loading={loading} />
       : <div></div>
@@ -24,8 +28,8 @@ class Item extends Component {
 
 const mapStateToProps = (state, props) => ({
   item: getItem(state, props.match.params.itemId),
-  loading: isLoading(state)
-  // hasError: hasError(state, props.match.params.itemId)
+  loading: isLoading(state),
+  hasError: hasError(state, props.match.params.itemId)
 }); 
 
 Item = withRouter(connect(

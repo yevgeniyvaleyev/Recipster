@@ -9,7 +9,9 @@ export const fetchItems = () => (dispatch, getState) => {
   .then((response) => {
     dispatch(actions.onItemsFetched(response.recipes));
   })
-  .catch(() => actions.onItemsFetchError());
+  .catch(() => { 
+    dispatch(actions.onItemsFetchError())
+  });
 }
 
 export const fetchItem = (id) => (dispatch, getState) => {
@@ -19,5 +21,7 @@ export const fetchItem = (id) => (dispatch, getState) => {
   .then((response) => {
     dispatch(actions.onItemFetched(response.recipe));
   })
-  .catch(() => actions.onItemFetchError());
+  .catch(() => {
+    dispatch(actions.onItemFetchError())
+  });
 }

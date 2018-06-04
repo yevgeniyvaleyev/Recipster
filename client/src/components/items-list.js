@@ -6,14 +6,8 @@ import { ItemDetailsShort } from './item-details-short';
 export class ItemsList extends Component {
 
   render () {
-    const { items, loading } = this.props;
-    
-    if (items.length === 0 && !loading) {
-      return (
-        <div>No items</div>
-      )
-    }
-    
+    const { items } = this.props;
+        
     return (
       <List>
         {items.map((item) => (

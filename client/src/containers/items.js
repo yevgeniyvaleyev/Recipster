@@ -4,6 +4,7 @@ import { withRouter } from 'react-router';
 import { fetchItems } from '../actions';
 import { getAllItems, isLoading } from '../reducers';
 import { ItemsList } from '../components/items-list';
+import NoMatch from '../components/no-match';
 
 class Items extends Component {
 
@@ -14,6 +15,9 @@ class Items extends Component {
   render() {
     const { items, loading } = this.props;
 
+    if (!items.length && !loading) {
+      return <NoMatch message="No items found" />
+    }
     return (
       <ItemsList items={items} loading={loading} />
     );

@@ -6,6 +6,9 @@ import { Row, Col } from 'react-flexbox-grid'
 import Items from './containers/items';
 import Item from './containers/item';
 import LoadIndicator from './containers/load-indicator';
+import { NavLink } from 'react-router-dom';
+import NoMatch from './components/no-match';
+
 import './App.css';
 
 export default class App extends Component {
@@ -18,7 +21,7 @@ export default class App extends Component {
               <Paper className="header-container" zDepth={1}>
                 <Toolbar>
                   <ToolbarGroup>
-                    <h3>Lister</h3>
+                    <NavLink to="/"><h3>Recipster</h3></NavLink>
                   </ToolbarGroup>
                 </Toolbar>
               </Paper>
@@ -29,8 +32,8 @@ export default class App extends Component {
             <Col lg={12}>
               <Switch>
                 <Route path='/' exact component={Items} />
-                {/* <Route path='/not-found' component={NoMatch} /> */}
-                <Route path='/:itemId'  component={Item} />
+                <Route path='/item/:itemId'  component={Item} />
+                <Route path='/' component={NoMatch} />
               </Switch>
             </Col>
           </Row>
