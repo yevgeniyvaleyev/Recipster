@@ -18,7 +18,7 @@ export default class App extends Component {
               <Paper className="header-container" zDepth={1}>
                 <Toolbar>
                   <ToolbarGroup>
-                    <h3>Lister App</h3>
+                    <h3>Lister</h3>
                   </ToolbarGroup>
                 </Toolbar>
               </Paper>
