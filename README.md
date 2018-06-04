@@ -31,6 +31,6 @@ The application was developed and tested on `node v8.1.2`
 # Decisions and difficulties
 
 - Some open API have cross-origin resource sharing restrictions, so I added own dev server.
-- I had some problems making react-router-redux working with persist, I decided to avoid using react-router-redux, since it does not give vaslue to this specific application.
+- I had some problems making react-router-redux working with persist, I decided to avoid using react-router-redux, since it does not give value to this specific application.
 - For bigger application I would add Typescript
 - During testing appeared that react-flaxbox-grid@^2.0.0 has some problems with modules import, I had to use earlier version. Version ^2 requires farther investigation.  
