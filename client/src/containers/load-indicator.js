@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { areItemsLoading } from '../reducers';
+import { isLoading } from '../reducers';
 import { LinearProgress } from 'material-ui';
 
 class LoadIndicator extends Component {
@@ -12,7 +12,7 @@ class LoadIndicator extends Component {
 }
 
 const mapStateToProps = (state, props) => ({
-  loading: areItemsLoading(state)
+  loading: isLoading(state)
 }); 
 
 LoadIndicator = connect(

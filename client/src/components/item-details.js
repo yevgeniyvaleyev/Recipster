@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {Row, Col} from 'react-flexbox-grid';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { Card, Paper, CardText, CardMedia, CardTitle, LinearProgress } from 'material-ui';
+import { Card, Paper, CardText, CardTitle } from 'material-ui';
 
 const Media = styled(Paper)`
   max-height: 400px;
@@ -15,7 +14,7 @@ const Media = styled(Paper)`
 export class ItemDetails extends Component {
   
   render () {
-    const { item } = this.props;
+    const { item, loading } = this.props;
 
     return (
       <Card>
@@ -27,7 +26,7 @@ export class ItemDetails extends Component {
             </Col>
             <Col lg={4} md={6} sm={12}>
               <h3>Ingredients</h3>
-              {item.ingredients
+              {(!loading && item.ingredients)
                 ? <ol>
                   {item.ingredients.map((ingredient, index) => 
                     <li key={index}>{ingredient}</li>
@@ -54,5 +53,6 @@ export class ItemDetails extends Component {
 }
 
 ItemDetails.propTypes = {
-  item: PropTypes.object.isRequired
+  item: PropTypes.object.isRequired,
+  loading: PropTypes.bool.isRequired
 };

@@ -6,9 +6,9 @@ import { ItemDetailsShort } from './item-details-short';
 export class ItemsList extends Component {
 
   render () {
-    const { items } = this.props;
+    const { items, loading } = this.props;
     
-    if (items.length === 0) {
+    if (items.length === 0 && !loading) {
       return (
         <div>No items</div>
       )
@@ -25,5 +25,6 @@ export class ItemsList extends Component {
 }
 
 ItemsList.propTypes = {
-  items: PropTypes.array.isRequired
+  items: PropTypes.array.isRequired,
+  loading: PropTypes.bool.isRequired
 };

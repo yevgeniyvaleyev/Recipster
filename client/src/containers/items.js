@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { fetchItems } from '../actions';
-import { getAllItems, areItemsLoading } from '../reducers';
+import { getAllItems, isLoading } from '../reducers';
 import { ItemsList } from '../components/items-list';
-import { LinearProgress } from 'material-ui';
 
 class Items extends Component {
 
@@ -13,13 +12,10 @@ class Items extends Component {
   }
 
   render() {
-    const { 
-      items, 
-      areItemsLoading
-    } = this.props;
+    const { items, loading } = this.props;
 
     return (
-      <ItemsList items={items} />
+      <ItemsList items={items} loading={loading} />
     );
 
   }
@@ -27,7 +23,7 @@ class Items extends Component {
 
 const mapStateToProps = (state, props) => ({
   items: getAllItems(state),
-  areItemsLoading: areItemsLoading(state)
+  loading: isLoading(state)
 }); 
 
 Items = withRouter(connect(

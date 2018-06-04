@@ -9,4 +9,4 @@ export default combineReducers({
 
 export const getAllItems = (state) => [...state.items];
 export const getItem = (state, id) => state.items.find(({recipe_id}) => recipe_id === id);
-export const areItemsLoading = (state) => state.loading.data;
+export const isLoading = (state) => state.loading.data;
