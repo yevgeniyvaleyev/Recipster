@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { fetchItems } from '../actions';
+import { onItemsFetchRequested } from '../actions';
 import { getAllItems, isLoading } from '../reducers';
 import { ItemsList } from '../components/items-list';
 import NoMatch from '../components/no-match';
@@ -32,7 +32,7 @@ const mapStateToProps = (state, props) => ({
 
 Items = withRouter(connect(
   mapStateToProps,
-  { fetchItems }
+  { fetchItems: onItemsFetchRequested }
 )(Items));
 
 export default Items;

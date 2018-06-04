@@ -1,27 +1,41 @@
-import * as actions from './action-creators';
+import * as types from './types';
 
-const api = 'http://localhost:3001';
+export const onItemsFetched = (data) => ({
+  type: types.FETCH_ITEMS_END,
+  payload: data
+});
 
-export const fetchItems = () => (dispatch, getState) => {
-  dispatch(actions.onItemsFetchStart());
-  fetch(`${api}/items`)
-  .then((response) => response.json())
-  .then((response) => {
-    dispatch(actions.onItemsFetched(response.recipes));
-  })
-  .catch(() => { 
-    dispatch(actions.onItemsFetchError())
-  });
-}
+export const onItemsFetchRequested = () => ({
+  type: types.FETCH_ITEMS_REQUESTED,
+  payload: {}
+});
 
-export const fetchItem = (id) => (dispatch, getState) => {
-  dispatch(actions.onItemFetchStart());
-  fetch(`${api}/items/${id}`)
-  .then((response) => response.json())
-  .then((response) => {
-    dispatch(actions.onItemFetched(response.recipe));
-  })
-  .catch(() => {
-    dispatch(actions.onItemFetchError())
-  });
-}
+export const onItemsFetchStart = () => ({
+  type: types.FETCH_ITEMS_START,
+  payload: {}
+});
+
+export const onItemsFetchError = () => ({
+  type: types.FETCH_ITEMS_ERROR,
+  payload: {}
+});
+
+export const onItemFetched = (data) => ({
+  type: types.FETCH_ITEM_END,
+  payload: data
+});
+
+export const onItemFetchStart = () => ({
+  type: types.FETCH_ITEM_START,
+  payload: {}
+});
+
+export const onItemFetchRequested = (id) => ({
+  type: types.FETCH_ITEM_REQUESTED,
+  payload: { id }
+});
+
+export const onItemFetchError = () => ({
+  type: types.FETCH_ITEM_ERROR,
+  payload: {}
+});

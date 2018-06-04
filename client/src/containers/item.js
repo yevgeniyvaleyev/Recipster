@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getItem, isLoading, hasError } from '../reducers';
-import { fetchItem } from '../actions';
+import { onItemFetchRequested } from '../actions';
 import { withRouter } from 'react-router';
 import { ItemDetails } from '../components/item-details';
 import NoMatch from '../components/no-match';
@@ -34,7 +34,7 @@ const mapStateToProps = (state, props) => ({
 
 Item = withRouter(connect(
   mapStateToProps,
-  { fetchItem }
+  { fetchItem: onItemFetchRequested }
 )(Item));
 
 export default Item;
