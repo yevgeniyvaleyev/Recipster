@@ -4,7 +4,8 @@ import { Switch, Route } from 'react-router-dom';
 import { Paper, Toolbar, ToolbarGroup } from 'material-ui';
 import { Row, Col } from 'react-flexbox-grid'
 import Items from './containers/items';
-// import NoMatch from './components/no-match';
+import Item from './containers/item';
+import LoadIndicator from './containers/load-indicator';
 import './App.css';
 
 export default class App extends Component {
@@ -21,6 +22,7 @@ export default class App extends Component {
                   </ToolbarGroup>
                 </Toolbar>
               </Paper>
+              <LoadIndicator />
             </Col>
           </Row>
           <Row>
@@ -28,7 +30,7 @@ export default class App extends Component {
               <Switch>
                 <Route path='/' exact component={Items} />
                 {/* <Route path='/not-found' component={NoMatch} /> */}
-                {/* <Route path='/:itemId'  component={Item} /> */}
+                <Route path='/:itemId'  component={Item} />
               </Switch>
             </Col>
           </Row>

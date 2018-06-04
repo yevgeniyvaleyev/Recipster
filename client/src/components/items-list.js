@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { MenuItem, CardText, Card, LinearProgress } from 'material-ui';
+import { List } from 'material-ui';
+import { ItemDetailsShort } from './item-details-short';
 
 export class ItemsList extends Component {
 
@@ -9,18 +10,16 @@ export class ItemsList extends Component {
     
     if (items.length === 0) {
       return (
-        <LinearProgress />
+        <div>No items</div>
       )
     }
     
     return (
-      <div>
+      <List>
         {items.map((item) => (
-            <Card key={item.recipe_id}>
-              <CardText>{item.title}</CardText>
-            </Card>
+          <ItemDetailsShort key={item.recipe_id} item={item} />
         ))}
-      </div>
+      </List>
     )
   }
 }

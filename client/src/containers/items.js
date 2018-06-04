@@ -4,6 +4,7 @@ import { withRouter } from 'react-router';
 import { fetchItems } from '../actions';
 import { getAllItems, areItemsLoading } from '../reducers';
 import { ItemsList } from '../components/items-list';
+import { LinearProgress } from 'material-ui';
 
 class Items extends Component {
 
@@ -17,7 +18,10 @@ class Items extends Component {
       areItemsLoading
     } = this.props;
 
-    return <ItemsList items={items} />
+    return (
+      <ItemsList items={items} />
+    );
+
   }
 }
 
