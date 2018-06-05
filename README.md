@@ -1,5 +1,5 @@
 # Recipster app
-The application fetched data from public API and shows items list. User can view details of the item by clicking on item.
+The application fetches data from public API and shows recepies list. User can view details of the item by clicking on it.
 
 # Installation
 
